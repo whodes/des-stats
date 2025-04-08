@@ -6,10 +6,10 @@ require_relative 'nytimes'
 module Services
   class Stats
 
-    def initialize
-      @logger = Logger.new($stdout)
-      @duolingo = Services::Duolingo.new
-      @nytimes = Services::Nytimes.new
+    def initialize(logger: Logger.new($stdout))
+      @logger = logger
+      @duolingo = Services::Duolingo.new(logger: @logger)
+      @nytimes = Services::Nytimes.new(logger: @logger)
     end
 
 
