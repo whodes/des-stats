@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'redis'
 require 'logger'
 
-require_relative 'config'
+require_relative 'config/config'
 require_relative 'services/stats'
 
 class App < Sinatra::Application

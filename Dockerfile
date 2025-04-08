@@ -48,4 +48,5 @@ COPY --chown=ruby:ruby . .
 
 # Start the server
 EXPOSE 8080
-CMD ["bundle", "exec", "puma", "-C", "puma.rb", "p", "0.0.0.0", "8080"]
+# CMD ["bundle", "exec", "puma", "-C", "puma.rb", "p", "0.0.0.0", "8080"]
+CMD ["bundle", "exec", "puma", "config.ru"]
