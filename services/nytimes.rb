@@ -24,20 +24,20 @@ module Services
       response = @conn.get
 
       if response.success?
-        LOGGER.debug "Response: #{response.body}"
+        @logger.debug "Response: #{response.body}"
         stats = response.body 
         return {
           wordle_streak: stats&.dig('player', 'stats','wordle', 'calculatedStats', 'currentStreak'),
           wordle_max_streak: stats&.dig('player', 'stats','wordle', 'calculatedStats', 'maxStreak'),
         }
       else
-        LOGGER.error "Error fetching NYT stats: #{response.status}"
+        @logger.error "Error fetching NYT stats: #{response.status}"
         return nil
       end
     rescue Faraday::Error => e
-      LOGGER.error "HTTP error: #{e.message}"
-      LOGGER.error "Response: #{e.response[:status]}"
-      LOGGER.error "Response body: #{e.response[:body]}"
+      @logger.error "HTTP error: #{e.message}"
+      @logger.error "Response: #{e.response[:status]}"
+      @logger.error "Response body: #{e.response[:body]}"
       return nil
     end
   end

@@ -23,4 +23,4 @@ export NYTIMES_COOKIE="your_nytimes_cookie"
 
 start the app 
 
-```bundle exec puma -C puma.rb ``` 
+```bundle exec puma -C app.rb ``` 
